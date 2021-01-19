@@ -22,12 +22,13 @@ $('#contenedor').append( $('<div/>', {id: 'titulo'}));
 $('#titulo').css({
 
 "font-family": "Germania One",
-"font-size": "100px",
-"color": "purple",
+"font-size": "50px",
+"color": "pink",
+'justify-content': 'center'
 
 });
 
-$('#titulo').text('Hola, soy Vanina Vergman y esta es mi página web.');
+$('#titulo').html(`Hola, soy Vanina Vergman <br> y esta es mi página web.`);
 
 
 })();
