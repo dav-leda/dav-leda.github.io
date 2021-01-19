@@ -21,10 +21,10 @@ $('#contenedor').append( $('<div/>', {id: 'titulo'}));
 
 $('#titulo').css({
 
-"font-family": 'UnifrakturCook',
-"font-size": "40px",
-"color": "darkred",
-'justify-content': 'center'
+'font-family': 'Germania One',
+'font-size': '40px',
+'color': 'darkred',
+'text-align': 'justify'
 
 });
 
