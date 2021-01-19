@@ -21,13 +21,14 @@ $('#contenedor').append( $('<div/>', {id: 'titulo'}));
 
 $('#titulo').css({
 
-"font-family": "Sacramento",
-"font-size": "100px",
-"color": "purple",
+'font-family': 'Sacramento',
+'font-size': '100px',
+'color': 'purple',
+'text-align': 'center'
 
 });
 
-$('#titulo').text('Vani es trolo 🧚🏻‍♂️');
+$('#titulo').html(`Vani es trolo<br>🧚🏻‍♂️`);
 
 
 })();
