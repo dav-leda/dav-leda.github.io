@@ -12,7 +12,7 @@ $('#contenedor').css({
     'flex-direction': 'column',
     'justify-content': 'center',
     'align-items': 'center',
-    'padding-top': '50px'
+    'margin-top': '50vh'
     
 });
 
@@ -27,7 +27,7 @@ $('#titulo').css({
 
 });
 
-$('#titulo').text('choto');
+$('#titulo').text('VANI ES TROLO');
 
 
 })();
