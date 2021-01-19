@@ -22,7 +22,7 @@ $('#contenedor').append( $('<div/>', {id: 'titulo'}));
 $('#titulo').css({
 
 'font-family': 'Germania One',
-'font-size': '40px',
+'font-size': '80px',
 'color': 'darkred',
 'text-align': 'center'
 
