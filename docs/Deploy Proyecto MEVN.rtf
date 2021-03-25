@@ -1,0 +1,239 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fmodern\fcharset0 CourierNewPSMT;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17940\viewh12660\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b\fs36 \cf0 Deploy de Proyecto MEVN en VPS:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0\fs24 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf0 1. Ingresar al Droplet de DO:
+\f0\b0 \
+\
+
+\f2 ssh usuario@ip
+\f0 \
+\
+\
+\
+
+\f1\b 2. Clonar repositorio:
+\f0\b0 \
+\
+
+\f2 cd /var/www/html/prueba-mevn\
+\
+git clone https://github.com/dav-leda/proyecto-mevn.git
+\f0 \
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b \cf0 3. Configurar variables de entorno del cliente:
+\f0\b0 \
+\
+
+\f2 cd /var/www/html/proyecto-mevn/client\
+
+\f0 \
+
+\f2 ls -a
+\f0  (chequear si existe el archivo .env.example)\
+\
+
+\f2 cp .env.example .env
+\f0  (copiar a .env)\
+\
+
+\f2 vim .env
+\f0 \
+\
+i (insertar texto en VIM)\
+\
+
+\f2 VUE_APP_API_URL=https://proyecto-mevn.com.ar
+\f0  (NO http://localhost:puerto como ser\'eda en DEV)\
+\
+esc (para salir de insert) :wq (para guardar y salir de VIM)\
+\
+
+\f2 cat .env
+\f0  (para chequear que est\'e1 todo bien)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf0 4. Build de Vue:
+\f0\b0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2 \cf0 cd /var/www/html/proyecto-mevn/client
+\f0 \
+\
+
+\f2 npm install
+\f0  (instala los m\'f3dulos de vue-cli y los dem\'e1s m\'f3dulos del proyecto)\
+\
+
+\f2 npm run build
+\f0  (crea el directorio "dist" con el archivo index.html)\
+\
+\
+\
+
+\f1\b 5. Crear archivo de configuraci\'f3n de NGINX:
+\f0\b0 \
+\
+
+\f2 cd /etc/nginx/sites-available\
+\
+touch proyecto-mevn\
+\
+vim proyecto-mevn\
+
+\f0 \
+i (para insertar texto en VIM)\
+\
+\
+\
+
+\f1\b 6. Insertar configuraci\'f3n en el archivo:
+\f0\b0 \
+\
+
+\f2 server \{\
+        listen 80;\
+		listen [::]:80; server_name proyecto-mevn.com.ar www.proyecto-mevn.com.ar;\
+		root /var/www/html/proyecto-mevn/client/dist; \
+		index index.html;\
+        location / \{\
+                 try_files $uri $uri/ =404;\
+		\}\
+\
+	location /api \{ \
+		proxy_pass http://localhost:8081; \
+		proxy_http_version 1.1; \
+		proxy_set_header Upgrade $http_upgrade; \
+		proxy_set_header Connection 'upgrade'; \
+		proxy_set_header Host $host; \
+		proxy_cache_bypass $http_upgrade;\
+	\}\
+\}
+\f0 \
+ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+esc (para salir de INSERT)\
+\
+:wq (para guardar y salir de VIM)\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf0 7. Habilitar sitio:
+\f0\b0 \
+\
+
+\f2 ln -s /etc/nginx/sites-available/proyecto-mevn /etc/nginx/sites-enabled/\
+\
+sudo systemctl restart nginx.service\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf0 8. Configurar variables de entorno del BackEnd:
+\f0\b0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2 \cf0 cd /var/www/html/proyecto-mevn/backend
+\f0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2 \cf0 ls -a
+\f0  (chequear si existe el archivo .env.example)\
+\
+
+\f2 cp .env.example .env
+\f0  (copiar a .env)\
+\
+
+\f2 vim .env
+\f0 \
+\
+i (insertar texto)\
+\
+
+\f2 MONGO_URI_CLUSTER=mongodb+srv://user:password@url-cluster.mongodb.net/proyecto-mevn?authSource=admin\
+\
+MONGO_URI_VPS=mongodb://ip-del-droplet:27017/proyecto-mevn\
+\
+MONGO_POOL_SIZE=5\
+\
+PORT=8081\
+
+\f0 \
+esc :wq\
+\
+
+\f2 cat .env 
+\f0 (para chequear que est\'e1 todo bien)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf0 9. Activar BackEnd:
+\f0\b0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2 \cf0 cd /var/www/html/proyecto-mevn/backend\
+\
+npm install\
+\
+pm2 start index.js --name api-mevn\
+
+\f0 \
+\
+\
+
+\f1\b 10. Instalar Certificado SSL
+\f0\b0 \
+\
+
+\f2 cd /etc/nginx/sites-available \
+\
+grep -rl proyecto-mevn.com.ar\
+\
+certbot --nginx -d proyecto-mevn.com.ar -d www.proyecto-mevn.com.ar\
+\
+systemctl restart nginx\
+
+\f0   \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+}
