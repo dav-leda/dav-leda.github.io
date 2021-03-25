@@ -1,0 +1,471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.0.4.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 1in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p style="margin-bottom: 0in; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="5" style="font-size: 18pt"><b>Deploy
+de Proyecto MEVN en VPS:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>1.
+Ingresar al Droplet de DO:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">ssh
+usuario@ip</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>2.
+Clonar repositorio:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cd
+/var/www/html/prueba-mevn</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">git
+clone https://github.com/dav-leda/proyecto-mevn.git</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>3.
+Configurar variables de entorno del cliente:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cd
+/var/www/html/proyecto-mevn/client</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">ls
+-a</span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(chequear si existe el archivo .env.example)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cp
+.env.example .env</span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(copiar a .env)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">vim
+.env</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">i
+(insertar texto en VIM)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">VUE_APP_API_URL=https://proyecto-mevn.com.ar</span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(NO http://localhost:puerto como sería en DEV)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">esc
+(para salir de insert) :wq (para guardar y salir de VIM)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cat
+.env</span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(para chequear que está todo bien)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>4.
+Build de Vue:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cd
+/var/www/html/proyecto-mevn/client</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">npm
+install</span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(instala los módulos de vue-cli y los demás módulos del proyecto)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">npm
+run build</span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(crea el directorio &quot;dist&quot; con el archivo index.html)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>5.
+Crear archivo de configuración de NGINX:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cd
+/etc/nginx/sites-available</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">touch
+proyecto-mevn</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">vim
+proyecto-mevn</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">i
+(para insertar texto en VIM)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>6.
+Insertar configuración en el archivo:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">server
+{</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+       <font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">listen
+80;</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		listen
+[::]:80; server_name proyecto-mevn.com.ar www.proyecto-mevn.com.ar;</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		root
+/var/www/html/proyecto-mevn/client/dist; </span></font></font></font>
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		index
+index.html;</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+       <font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">location
+/ {</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+                <font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">try_files
+$uri $uri/ =404;</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		}</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	location
+/api { </span></font></font></font>
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		proxy_pass
+http://localhost:8081; </span></font></font></font>
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		proxy_http_version
+1.1; </span></font></font></font>
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		proxy_set_header
+Upgrade $http_upgrade; </span></font></font></font>
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		proxy_set_header
+Connection 'upgrade'; </span></font></font></font>
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		proxy_set_header
+Host $host; </span></font></font></font>
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">		proxy_cache_bypass
+$http_upgrade;</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	}</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">}</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+</font><br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">esc
+(para salir de INSERT)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">:wq
+(para guardar y salir de VIM)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>7.
+Habilitar sitio:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">ln
+-s /etc/nginx/sites-available/proyecto-mevn /etc/nginx/sites-enabled/</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">sudo
+systemctl restart nginx.service</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>8.
+Configurar variables de entorno del BackEnd:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cd
+/var/www/html/proyecto-mevn/backend</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">ls
+-a</span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(chequear si existe el archivo .env.example)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cp
+.env.example .env</span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(copiar a .env)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">vim
+.env</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">i
+(insertar texto)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">MONGO_URI_CLUSTER=mongodb+srv://user:password@url-cluster.mongodb.net/proyecto-mevn?authSource=admin</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">MONGO_URI_VPS=mongodb://ip-del-droplet:27017/proyecto-mevn</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">MONGO_POOL_SIZE=5</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">PORT=8081</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">esc
+:wq</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cat
+.env </span></font></font></font><font color="#000000"><font face="Helvetica, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">(para
+chequear que está todo bien)</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>9.
+Activar BackEnd:</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cd
+/var/www/html/proyecto-mevn/backend</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">npm
+install</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">pm2
+start index.js --name api-mevn</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Helvetica-Bold, serif"><font size="3" style="font-size: 12pt"><b>10.
+Instalar Certificado SSL</b></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">cd
+/etc/nginx/sites-available </span></font></font></font>
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">grep
+-rl proyecto-mevn.com.ar</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">certbot
+--nginx -d proyecto-mevn.com.ar -d www.proyecto-mevn.com.ar</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="CourierNewPSMT, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">systemctl
+restart nginx</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"> 
+  </font>
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+</body>
+</html>
